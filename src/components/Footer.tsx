@@ -107,6 +107,9 @@ const Footer: React.FC = () => {
           <p className="text-gray-400">
             &copy; {new Date().getFullYear()} PIXELPIEMEDIA. All rights reserved.
           </p>
+          <p className="mt-2 md:mt-0 text-purple-400">
+            Designed by Sachin
+          </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <a href="#privacy" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
               Privacy Policy
