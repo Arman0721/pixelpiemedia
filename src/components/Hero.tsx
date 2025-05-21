@@ -181,20 +181,6 @@ const Hero: React.FC = () => {
                 className="rounded-[60%_40%_30%_70%/60%_30%_70%_40%] animate-morph"
               />
             </div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="absolute -bottom-4 -right-4 bg-white/10 backdrop-blur-lg p-6 rounded-lg shadow-xl max-w-xs"
-            >
-              <div className="flex items-center space-x-2 mb-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <p className="text-white text-sm">Currently Online</p>
-              </div>
-              <p className="text-white font-semibold">
-                "Ready to transform your digital presence? Let's create something extraordinary together."
-              </p>
-            </motion.div>
           </motion.div>
         </div>
 
