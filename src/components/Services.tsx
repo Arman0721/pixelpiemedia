@@ -9,7 +9,8 @@ import {
   ShoppingBag,
   MessageCircle,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Zap
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -28,48 +29,48 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, ben
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-purple-100"
+      className="bg-gradient-to-br from-slate-900 to-purple-900 rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 border border-purple-500/20 group"
     >
-      <div className="w-16 h-16 rounded-2xl bg-purple-50 flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-all duration-300">
-        <div className="text-purple-600 group-hover:text-white transition-all duration-300">
+      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
+        <div className="text-purple-400 group-hover:text-cyan-400 transition-all duration-300">
           {icon}
         </div>
       </div>
       
-      <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
+      <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent group-hover:from-cyan-400 group-hover:to-purple-400">
         {title}
       </h3>
       
-      <p className="text-gray-600 mb-8 leading-relaxed">
+      <p className="text-gray-300 mb-8 leading-relaxed">
         {description}
       </p>
       
       <div className="space-y-8">
         <div>
-          <h4 className="text-lg font-semibold mb-4 flex items-center text-gray-800">
-            <span className="w-8 h-0.5 bg-purple-600 mr-3"></span>
+          <h4 className="text-lg font-semibold mb-4 flex items-center text-white">
+            <span className="w-8 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mr-3"></span>
             Key Benefits
           </h4>
           <ul className="space-y-3">
             {benefits.map((benefit, index) => (
               <li key={index} className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-purple-600 mt-1 mr-3 flex-shrink-0" />
-                <span className="text-gray-700">{benefit}</span>
+                <CheckCircle className="w-5 h-5 text-purple-400 mt-1 mr-3 flex-shrink-0" />
+                <span className="text-gray-300">{benefit}</span>
               </li>
             ))}
           </ul>
         </div>
         
         <div>
-          <h4 className="text-lg font-semibold mb-4 flex items-center text-gray-800">
-            <span className="w-8 h-0.5 bg-purple-600 mr-3"></span>
+          <h4 className="text-lg font-semibold mb-4 flex items-center text-white">
+            <span className="w-8 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mr-3"></span>
             Features
           </h4>
           <ul className="space-y-3">
             {features.map((feature, index) => (
               <li key={index} className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-purple-600 mt-1 mr-3 flex-shrink-0" />
-                <span className="text-gray-700">{feature}</span>
+                <Zap className="w-5 h-5 text-cyan-400 mt-1 mr-3 flex-shrink-0" />
+                <span className="text-gray-300">{feature}</span>
               </li>
             ))}
           </ul>
@@ -79,7 +80,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, ben
       <motion.a 
         href="#contact"
         whileHover={{ x: 5 }}
-        className="inline-flex items-center text-purple-600 font-semibold mt-8 hover:text-purple-700 transition-colors duration-300"
+        className="inline-flex items-center text-cyan-400 font-semibold mt-8 hover:text-purple-400 transition-colors duration-300"
       >
         Learn More <ArrowRight className="ml-2 w-4 h-4" />
       </motion.a>
@@ -92,143 +93,143 @@ const Services: React.FC = () => {
     {
       icon: <Globe size={32} />,
       title: 'Web Development',
-      description: 'Transform your online presence with custom-built, responsive websites that engage visitors and drive conversions. Our expert team delivers modern, scalable solutions tailored to your business needs.',
+      description: 'Create stunning, high-performance websites that captivate your audience and drive results. Our expert team combines cutting-edge technology with creative design to deliver exceptional web experiences.',
       benefits: [
-        'Increased online visibility and brand awareness',
-        'Higher conversion rates through optimized user experience',
-        'Mobile-first design for maximum reach',
-        'Improved search engine rankings'
+        'Boost online visibility and engagement',
+        'Increase conversion rates by up to 200%',
+        'Enhance user experience across all devices',
+        'Improve search engine rankings'
       ],
       features: [
-        'Custom responsive design',
-        'SEO optimization',
+        'Responsive design optimization',
+        'Advanced SEO implementation',
         'Performance optimization',
-        'Content management system'
+        'Custom CMS integration'
       ]
     },
     {
       icon: <Smartphone size={32} />,
       title: 'Mobile App Development',
-      description: 'Create powerful, user-friendly mobile applications that connect with your audience. We develop native and cross-platform apps that deliver exceptional experiences on iOS and Android.',
+      description: 'Transform your ideas into powerful mobile applications that users love. We create native and cross-platform apps that deliver exceptional experiences and drive business growth.',
       benefits: [
-        'Reach users on their preferred devices',
-        'Increase customer engagement and retention',
+        'Expand your market reach globally',
+        'Boost user engagement by 150%',
         'Generate new revenue streams',
-        'Strengthen brand loyalty'
+        'Build brand loyalty'
       ],
       features: [
-        'Native iOS and Android development',
+        'Native iOS & Android development',
         'Cross-platform solutions',
-        'Push notifications',
+        'Real-time updates & notifications',
         'Offline functionality'
       ]
     },
     {
       icon: <TrendingUp size={32} />,
       title: 'Digital Marketing',
-      description: 'Drive growth with data-driven digital marketing strategies that increase brand visibility, generate qualified leads, and create meaningful customer engagement across all channels.',
+      description: 'Accelerate your growth with data-driven digital marketing strategies. We help you reach your target audience, generate quality leads, and achieve measurable ROI.',
       benefits: [
-        'Targeted audience reach',
-        'Measurable ROI on marketing spend',
-        'Enhanced brand credibility',
-        'Data-driven decision making'
+        'Increase qualified leads by 300%',
+        'Optimize marketing ROI',
+        'Build brand authority',
+        'Drive data-informed decisions'
       ],
       features: [
-        'SEO and content marketing',
-        'Social media management',
-        'PPC advertising',
-        'Email marketing campaigns'
+        'Advanced SEO strategies',
+        'Social media campaigns',
+        'PPC optimization',
+        'Marketing automation'
       ]
     },
     {
       icon: <Palette size={32} />,
       title: 'UI/UX Design',
-      description: 'Create intuitive and visually stunning interfaces that enhance user satisfaction and strengthen your brand. Our design process focuses on user research and modern design principles.',
+      description: 'Create memorable digital experiences that users love. Our design team combines aesthetics with functionality to build interfaces that engage and convert.',
       benefits: [
-        'Improved user satisfaction and retention',
-        'Reduced development costs',
-        'Higher conversion rates',
-        'Stronger brand identity'
+        'Reduce bounce rates by 40%',
+        'Increase user satisfaction',
+        'Optimize conversion paths',
+        'Strengthen brand identity'
       ],
       features: [
-        'User research and testing',
-        'Wireframing and prototyping',
-        'Visual design',
-        'Interaction design'
+        'User research & testing',
+        'Interactive prototyping',
+        'Visual design excellence',
+        'Conversion optimization'
       ]
     },
     {
       icon: <Code size={32} />,
       title: 'Custom Software',
-      description: 'Develop tailored software solutions that streamline your operations and solve complex business challenges. Our team creates scalable, secure, and maintainable applications.',
+      description: 'Build powerful, scalable software solutions that transform your business operations. Our development team creates robust applications tailored to your unique needs.',
       benefits: [
-        'Automated business processes',
-        'Increased operational efficiency',
-        'Competitive advantage',
-        'Scalable solutions'
+        'Streamline business processes',
+        'Reduce operational costs',
+        'Increase efficiency by 200%',
+        'Enable business growth'
       ],
       features: [
-        'Custom business applications',
+        'Enterprise applications',
         'API development',
-        'Legacy system integration',
+        'System integration',
         'Cloud deployment'
       ]
     },
     {
       icon: <Database size={32} />,
       title: 'Cloud Solutions',
-      description: 'Leverage cloud technology to optimize performance, reduce costs, and ensure scalability. We provide comprehensive cloud infrastructure and migration services.',
+      description: 'Harness the power of cloud technology to scale your business efficiently. We provide comprehensive cloud services that optimize performance and reduce costs.',
       benefits: [
-        'Reduced infrastructure costs',
-        'Improved scalability and flexibility',
-        'Enhanced security',
-        'Disaster recovery'
+        'Cut infrastructure costs by 50%',
+        'Enhance scalability',
+        'Improve security',
+        'Enable remote operations'
       ],
       features: [
-        'Cloud migration',
-        'Infrastructure management',
+        'Cloud migration expertise',
+        'Infrastructure optimization',
         'Security implementation',
-        'Performance optimization'
+        'Performance monitoring'
       ]
     },
     {
       icon: <ShoppingBag size={32} />,
       title: 'E-Commerce',
-      description: 'Build powerful online stores that drive sales and provide seamless shopping experiences. Our e-commerce solutions include everything you need to succeed in online retail.',
+      description: 'Launch and scale your online store with our comprehensive e-commerce solutions. We build powerful platforms that drive sales and deliver exceptional shopping experiences.',
       benefits: [
-        'Increased sales and revenue',
-        'Expanded market reach',
-        'Automated order processing',
-        'Enhanced customer experience'
+        'Increase online sales by 250%',
+        'Expand market reach',
+        'Optimize conversion rates',
+        'Enhance customer experience'
       ],
       features: [
-        'Custom shopping cart',
-        'Payment gateway integration',
+        'Custom shopping experience',
+        'Secure payment integration',
         'Inventory management',
-        'Analytics and reporting'
+        'Analytics dashboard'
       ]
     },
     {
       icon: <MessageCircle size={32} />,
       title: 'Social Media Management',
-      description: 'Build and maintain a strong social media presence that engages your audience and drives business growth. We create and execute comprehensive social media strategies.',
+      description: 'Dominate social media with strategic content and engagement. We help you build a strong online presence that connects with your audience and drives business growth.',
       benefits: [
-        'Increased brand awareness',
-        'Better customer engagement',
-        'Higher website traffic',
-        'Improved customer service'
+        'Grow audience by 400%',
+        'Increase engagement rates',
+        'Build brand loyalty',
+        'Drive qualified traffic'
       ],
       features: [
-        'Content creation and curation',
+        'Content strategy & creation',
         'Community management',
-        'Analytics and reporting',
-        'Campaign management'
+        'Campaign optimization',
+        'Performance analytics'
       ]
     },
   ];
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="services" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -236,12 +237,12 @@ const Services: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
             Our Services
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-purple-800 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            We offer comprehensive digital solutions designed to help your business thrive in today's competitive landscape. Each service is tailored to meet your specific needs and goals.
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mb-6"></div>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Elevate your business with our comprehensive digital solutions. We combine innovation, expertise, and creativity to deliver results that exceed expectations.
           </p>
         </motion.div>
         
@@ -268,9 +269,9 @@ const Services: React.FC = () => {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center"
+            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center group"
           >
-            Discuss Your Project <ArrowRight className="ml-2 w-5 h-5" />
+            Start Your Digital Journey <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
           </motion.a>
         </motion.div>
       </div>
