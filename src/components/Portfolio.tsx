@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Code, Smartphone, Palette, TrendingUp } from 'lucide-react';
+import { ExternalLink, Code, Smartphone, Palette, TrendingUp, Globe } from 'lucide-react';
 
 interface Project {
   id: number;
