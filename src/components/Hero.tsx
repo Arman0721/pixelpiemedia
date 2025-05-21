@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect } from 'react';
+import React, { Suspense, useState, useEffect, lazy } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
@@ -7,7 +7,7 @@ import { OrbitControls, Sphere, Torus, Box } from '@react-three/drei';
 const Scene = () => {
   return (
     <>
-      <Sphere args={[1, 32, 32]} position={[0, 0, 0]}>
+      <Sphere args={[1, 16, 16]} position={[0, 0, 0]}>
         <meshStandardMaterial
           color="#00BCD4"
           roughness={0.2}
@@ -15,7 +15,7 @@ const Scene = () => {
           wireframe
         />
       </Sphere>
-      <Torus args={[2, 0.2, 16, 100]} rotation={[Math.PI / 2, 0, 0]}>
+      <Torus args={[2, 0.2, 12, 48]} rotation={[Math.PI / 2, 0, 0]}>
         <meshStandardMaterial
           color="#9C27B0"
           roughness={0.2}
@@ -66,20 +66,38 @@ const AnimatedCounter = ({ value, duration = 2 }: { value: string, duration?: nu
 };
 
 const Hero: React.FC = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
     <section id="home" className="relative pt-20 overflow-hidden min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-center opacity-10"></div>
       
-      <div className="absolute inset-0">
-        <Canvas camera={{ position: [0, 0, 5] }}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} />
-          <Suspense fallback={null}>
-            <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
-            <Scene />
-          </Suspense>
-        </Canvas>
-      </div>
+      {isLoaded && (
+        <div className="absolute inset-0">
+          <Canvas
+            camera={{ position: [0, 0, 5] }}
+            dpr={[1, 2]}
+            performance={{ min: 0.5 }}
+          >
+            <ambientLight intensity={0.5} />
+            <pointLight position={[10, 10, 10]} />
+            <Suspense fallback={null}>
+              <OrbitControls 
+                enableZoom={false} 
+                autoRotate 
+                autoRotateSpeed={0.5}
+                maxPolarAngle={Math.PI / 2}
+                minPolarAngle={Math.PI / 2}
+              />
+              <Scene />
+            </Suspense>
+          </Canvas>
+        </div>
+      )}
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <div className="lg:grid lg:grid-cols-2 gap-12 items-center">

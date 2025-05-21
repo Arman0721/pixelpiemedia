@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
+import { WhatsAppWidget } from 'react-whatsapp-widget';
+import 'react-whatsapp-widget/dist/index.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -10,10 +12,8 @@ import Footer from './components/Footer';
 
 function App() {
   useEffect(() => {
-    // Update title dynamically
     document.title = 'PIXELPIEMEDIA | Innovative Digital Solutions & Creative Agency';
     
-    // Add structured data for better SEO
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -23,7 +23,7 @@ function App() {
       "logo": "https://pixelpiemedia.com/logo.png",
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+91-8171572626",
+        "telephone": "+91-7500740941",
         "contactType": "customer service",
         "email": "contact@pixelpiemedia.com",
         "areaServed": "Worldwide"
@@ -57,14 +57,23 @@ function App() {
     <div className="font-sans">
       <Navbar />
       <main>
-        <Hero />
-        <Services />
-        <Portfolio />
-        <About />
-        <Testimonials />
-        <Contact />
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+          <Hero />
+          <Services />
+          <Portfolio />
+          <About />
+          <Testimonials />
+          <Contact />
+        </Suspense>
       </main>
       <Footer />
+      <WhatsAppWidget
+        phoneNumber="917500740941"
+        message="Hello! How can we help you today?"
+        companyName="PIXELPIEMEDIA"
+        replyTimeText="Typically replies within an hour"
+        className="z-50"
+      />
     </div>
   );
 }
