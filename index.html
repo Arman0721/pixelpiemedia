@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="description" content="PIXELPIEMEDIA - Leading digital innovation agency specializing in web development, mobile apps, and digital marketing solutions. Transform your business with our cutting-edge services." />
-    <meta name="keywords" content="digital agency, web development, mobile apps, digital marketing, UI/UX design, cloud solutions, software development" />
+    <meta name="keywords" content="digital agency, web development, mobile apps, digital marketing, UI/UX design, cloud solutions, software development, SEO services, social media marketing" />
     <meta name="author" content="PIXELPIEMEDIA" />
     <meta name="robots" content="index, follow" />
     <meta property="og:title" content="PIXELPIEMEDIA | Creative Digital Agency" />
@@ -20,6 +20,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>PIXELPIEMEDIA | Innovative Digital Solutions & Creative Agency</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" as="style" href="/src/index.css">
+    <link rel="preload" as="script" href="/src/main.tsx">
+    
+    <!-- Schema.org markup for better SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "PIXELPIEMEDIA",
+        "description": "Leading digital innovation agency specializing in web development, mobile apps, and digital marketing solutions.",
+        "url": "https://pixelpiemedia.com",
+        "logo": "https://pixelpiemedia.com/logo.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-7500740941",
+          "contactType": "customer service",
+          "email": "contact@pixelpiemedia.com",
+          "areaServed": "Worldwide"
+        },
+        "sameAs": [
+          "https://facebook.com/pixelpiemedia",
+          "https://twitter.com/pixelpiemedia",
+          "https://linkedin.com/company/pixelpiemedia",
+          "https://instagram.com/pixelpiemedia"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
