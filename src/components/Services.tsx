@@ -10,7 +10,17 @@ import {
   MessageCircle,
   ArrowRight,
   CheckCircle,
-  Zap
+  Zap,
+  Search,
+  Share2,
+  Mail,
+  Target,
+  BarChart2,
+  Camera,
+  Video,
+  PenTool,
+  Layout,
+  Server
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -91,141 +101,209 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, ben
 const Services: React.FC = () => {
   const services = [
     {
-      icon: <Globe size={32} />,
+      icon: <Search size={32} />,
+      title: 'SEO & Content Marketing',
+      description: 'Boost your online visibility and drive organic traffic with our comprehensive SEO and content marketing strategies. We help you rank higher and attract qualified leads.',
+      benefits: [
+        'Increase organic traffic by 300%',
+        'Improve search engine rankings',
+        'Build domain authority',
+        'Generate quality backlinks'
+      ],
+      features: [
+        'Keyword research & optimization',
+        'Content strategy & creation',
+        'Technical SEO audit',
+        'Link building campaigns'
+      ]
+    },
+    {
+      icon: <Share2 size={32} />,
+      title: 'Social Media Marketing',
+      description: 'Transform your social media presence with our strategic marketing solutions. We create engaging content and manage your social media channels to build strong connections with your audience.',
+      benefits: [
+        'Increase engagement by 200%',
+        'Grow follower base organically',
+        'Build brand awareness',
+        'Drive social conversions'
+      ],
+      features: [
+        'Content calendar & creation',
+        'Community management',
+        'Social media advertising',
+        'Analytics & reporting'
+      ]
+    },
+    {
+      icon: <Mail size={32} />,
+      title: 'Email Marketing',
+      description: 'Create powerful email campaigns that convert. Our email marketing services help you nurture leads and maintain strong relationships with your customers.',
+      benefits: [
+        'Increase open rates by 150%',
+        'Improve click-through rates',
+        'Boost customer retention',
+        'Drive repeat sales'
+      ],
+      features: [
+        'Campaign strategy & design',
+        'Automated workflows',
+        'A/B testing',
+        'Performance analytics'
+      ]
+    },
+    {
+      icon: <Target size={32} />,
+      title: 'PPC Advertising',
+      description: 'Maximize your ROI with targeted paid advertising campaigns. We manage your PPC campaigns across multiple platforms to drive qualified traffic and conversions.',
+      benefits: [
+        'Reduce cost per acquisition',
+        'Increase conversion rates',
+        'Improve ad relevance',
+        'Target specific audiences'
+      ],
+      features: [
+        'Google Ads management',
+        'Social media advertising',
+        'Display advertising',
+        'Remarketing campaigns'
+      ]
+    },
+    {
+      icon: <BarChart2 size={32} />,
+      title: 'Analytics & Reporting',
+      description: 'Make data-driven decisions with our comprehensive analytics and reporting services. We help you understand your digital performance and optimize for better results.',
+      benefits: [
+        'Track ROI accurately',
+        'Identify opportunities',
+        'Optimize campaigns',
+        'Measure success'
+      ],
+      features: [
+        'Custom dashboard setup',
+        'Performance tracking',
+        'Conversion optimization',
+        'Monthly reporting'
+      ]
+    },
+    {
+      icon: <Camera size={32} />,
+      title: 'Content Creation',
+      description: 'Create engaging visual content that captures attention and drives engagement. Our content creation services help you tell your brand story effectively.',
+      benefits: [
+        'Increase brand visibility',
+        'Improve engagement rates',
+        'Build brand identity',
+        'Drive social sharing'
+      ],
+      features: [
+        'Professional photography',
+        'Graphic design',
+        'Social media content',
+        'Brand storytelling'
+      ]
+    },
+    {
+      icon: <Video size={32} />,
+      title: 'Video Marketing',
+      description: 'Leverage the power of video to engage your audience and drive conversions. We create compelling video content that tells your brand story.',
+      benefits: [
+        'Increase engagement by 250%',
+        'Improve brand recall',
+        'Drive social sharing',
+        'Boost conversions'
+      ],
+      features: [
+        'Video production',
+        'Animation creation',
+        'Social media videos',
+        'Video advertising'
+      ]
+    },
+    {
+      icon: <PenTool size={32} />,
+      title: 'Brand Design',
+      description: 'Build a strong brand identity that resonates with your audience. Our branding services help you stand out in a crowded market.',
+      benefits: [
+        'Build brand recognition',
+        'Increase brand value',
+        'Improve brand perception',
+        'Create brand loyalty'
+      ],
+      features: [
+        'Logo design',
+        'Brand guidelines',
+        'Visual identity',
+        'Brand strategy'
+      ]
+    },
+    {
+      icon: <Layout size={32} />,
+      title: 'Website Design',
+      description: 'Create stunning, conversion-focused websites that drive results. Our web design services combine aesthetics with functionality.',
+      benefits: [
+        'Improve user experience',
+        'Increase conversion rates',
+        'Reduce bounce rates',
+        'Build credibility'
+      ],
+      features: [
+        'Custom design',
+        'Responsive development',
+        'UX optimization',
+        'Performance tuning'
+      ]
+    },
+    {
+      icon: <Server size={32} />,
       title: 'Web Development',
-      description: 'Create stunning, high-performance websites that captivate your audience and drive results. Our expert team combines cutting-edge technology with creative design to deliver exceptional web experiences.',
+      description: 'Build powerful, scalable web applications that drive your business forward. Our development team creates robust solutions tailored to your needs.',
       benefits: [
-        'Boost online visibility and engagement',
-        'Increase conversion rates by up to 200%',
-        'Enhance user experience across all devices',
-        'Improve search engine rankings'
+        'Improve functionality',
+        'Enhance performance',
+        'Scale efficiently',
+        'Ensure security'
       ],
       features: [
-        'Responsive design optimization',
-        'Advanced SEO implementation',
-        'Performance optimization',
-        'Custom CMS integration'
-      ]
-    },
-    {
-      icon: <Smartphone size={32} />,
-      title: 'Mobile App Development',
-      description: 'Transform your ideas into powerful mobile applications that users love. We create native and cross-platform apps that deliver exceptional experiences and drive business growth.',
-      benefits: [
-        'Expand your market reach globally',
-        'Boost user engagement by 150%',
-        'Generate new revenue streams',
-        'Build brand loyalty'
-      ],
-      features: [
-        'Native iOS & Android development',
-        'Cross-platform solutions',
-        'Real-time updates & notifications',
-        'Offline functionality'
-      ]
-    },
-    {
-      icon: <TrendingUp size={32} />,
-      title: 'Digital Marketing',
-      description: 'Accelerate your growth with data-driven digital marketing strategies. We help you reach your target audience, generate quality leads, and achieve measurable ROI.',
-      benefits: [
-        'Increase qualified leads by 300%',
-        'Optimize marketing ROI',
-        'Build brand authority',
-        'Drive data-informed decisions'
-      ],
-      features: [
-        'Advanced SEO strategies',
-        'Social media campaigns',
-        'PPC optimization',
-        'Marketing automation'
-      ]
-    },
-    {
-      icon: <Palette size={32} />,
-      title: 'UI/UX Design',
-      description: 'Create memorable digital experiences that users love. Our design team combines aesthetics with functionality to build interfaces that engage and convert.',
-      benefits: [
-        'Reduce bounce rates by 40%',
-        'Increase user satisfaction',
-        'Optimize conversion paths',
-        'Strengthen brand identity'
-      ],
-      features: [
-        'User research & testing',
-        'Interactive prototyping',
-        'Visual design excellence',
-        'Conversion optimization'
-      ]
-    },
-    {
-      icon: <Code size={32} />,
-      title: 'Custom Software',
-      description: 'Build powerful, scalable software solutions that transform your business operations. Our development team creates robust applications tailored to your unique needs.',
-      benefits: [
-        'Streamline business processes',
-        'Reduce operational costs',
-        'Increase efficiency by 200%',
-        'Enable business growth'
-      ],
-      features: [
-        'Enterprise applications',
-        'API development',
-        'System integration',
-        'Cloud deployment'
-      ]
-    },
-    {
-      icon: <Database size={32} />,
-      title: 'Cloud Solutions',
-      description: 'Harness the power of cloud technology to scale your business efficiently. We provide comprehensive cloud services that optimize performance and reduce costs.',
-      benefits: [
-        'Cut infrastructure costs by 50%',
-        'Enhance scalability',
-        'Improve security',
-        'Enable remote operations'
-      ],
-      features: [
-        'Cloud migration expertise',
-        'Infrastructure optimization',
-        'Security implementation',
-        'Performance monitoring'
+        'Custom development',
+        'API integration',
+        'Database design',
+        'Security implementation'
       ]
     },
     {
       icon: <ShoppingBag size={32} />,
-      title: 'E-Commerce',
-      description: 'Launch and scale your online store with our comprehensive e-commerce solutions. We build powerful platforms that drive sales and deliver exceptional shopping experiences.',
+      title: 'E-commerce Solutions',
+      description: 'Create powerful online stores that drive sales. We build e-commerce solutions that provide exceptional shopping experiences.',
       benefits: [
-        'Increase online sales by 250%',
-        'Expand market reach',
-        'Optimize conversion rates',
-        'Enhance customer experience'
+        'Increase online sales',
+        'Improve conversion rates',
+        'Enhance user experience',
+        'Streamline operations'
       ],
       features: [
-        'Custom shopping experience',
-        'Secure payment integration',
+        'Custom store development',
+        'Payment integration',
         'Inventory management',
-        'Analytics dashboard'
+        'Analytics setup'
       ]
     },
     {
       icon: <MessageCircle size={32} />,
       title: 'Social Media Management',
-      description: 'Dominate social media with strategic content and engagement. We help you build a strong online presence that connects with your audience and drives business growth.',
+      description: 'Manage your social media presence effectively. We help you build and maintain strong connections with your audience.',
       benefits: [
-        'Grow audience by 400%',
-        'Increase engagement rates',
-        'Build brand loyalty',
-        'Drive qualified traffic'
+        'Increase engagement',
+        'Grow audience',
+        'Build community',
+        'Drive traffic'
       ],
       features: [
-        'Content strategy & creation',
-        'Community management',
-        'Campaign optimization',
-        'Performance analytics'
+        'Content management',
+        'Community engagement',
+        'Campaign execution',
+        'Performance tracking'
       ]
-    },
+    }
   ];
 
   return (
