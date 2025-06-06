@@ -2,22 +2,53 @@ import React from 'react';
 import Logo from './Logo';
 
 const Footer: React.FC = () => {
+  const serviceLinks = [
+    { name: 'Web Development', href: '#services-web' },
+    { name: 'Mobile App Development', href: '#services-mobile' },
+    { name: 'Digital Marketing', href: '#services-marketing' },
+    { name: 'UI/UX Design', href: '#services-design' },
+    { name: 'SEO Services', href: '#services-seo' },
+    { name: 'Content Marketing', href: '#services-content' },
+    { name: 'Social Media Management', href: '#services-social' },
+    { name: 'E-Commerce Solutions', href: '#services-ecommerce' },
+  ];
+
+  const quickLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'About Us', href: '#about' },
+    { name: 'Services', href: '#services' },
+    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
+  const resourceLinks = [
+    { name: 'Blog', href: '/blog' },
+    { name: 'Case Studies', href: '/case-studies' },
+    { name: 'Privacy Policy', href: '/privacy-policy' },
+    { name: 'Terms of Service', href: '/terms-of-service' },
+    { name: 'Sitemap', href: '/sitemap.xml' },
+    { name: 'FAQ', href: '/faq' },
+  ];
+
+  const socialLinks = [
+    { name: 'Facebook', url: 'https://facebook.com/pixelpiemedia', icon: 'facebook' },
+    { name: 'Twitter', url: 'https://twitter.com/pixelpiemedia', icon: 'twitter' },
+    { name: 'Instagram', url: 'https://instagram.com/pixelpiemedia', icon: 'instagram' },
+    { name: 'LinkedIn', url: 'https://linkedin.com/company/pixelpiemedia', icon: 'linkedin' },
+  ];
+
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+          <div className="lg:col-span-2">
             <Logo />
             <p className="mt-4 text-gray-400">
               We deliver innovative digital solutions that help businesses thrive in today's competitive landscape. Our expert team crafts exceptional experiences that drive growth and success.
             </p>
             <div className="mt-6 flex space-x-4">
-              {[
-                { name: 'facebook', url: 'https://facebook.com/pixelpiemedia' },
-                { name: 'twitter', url: 'https://twitter.com/pixelpiemedia' },
-                { name: 'instagram', url: 'https://instagram.com/pixelpiemedia' },
-                { name: 'linkedin', url: 'https://linkedin.com/company/pixelpiemedia' }
-              ].map(platform => (
+              {socialLinks.map(platform => (
                 <a 
                   key={platform.name} 
                   href={platform.url}
@@ -38,19 +69,13 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Our Services</h3>
             <ul className="space-y-2">
-              {[
-                'Web Development',
-                'Mobile App Development',
-                'Digital Marketing',
-                'UI/UX Design',
-                'Custom Software',
-                'Cloud Solutions',
-                'E-Commerce Solutions',
-                'Digital Strategy',
-              ].map((service, index) => (
+              {serviceLinks.map((link, index) => (
                 <li key={index}>
-                  <a href="#services" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
-                    {service}
+                  <a 
+                    href={link.href}
+                    className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                  >
+                    {link.name}
                   </a>
                 </li>
               ))}
@@ -60,18 +85,12 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {[
-                { name: 'About Us', href: '#about' },
-                { name: 'Portfolio', href: '#portfolio' },
-                { name: 'Services', href: '#services' },
-                { name: 'Contact', href: '#contact' },
-                { name: 'Privacy Policy', href: '#privacy' },
-                { name: 'Terms of Service', href: '#terms' },
-                { name: 'Sitemap', href: '#sitemap' },
-                { name: 'Blog', href: '#blog' },
-              ].map((link, index) => (
+              {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+                  <a 
+                    href={link.href}
+                    className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                  >
                     {link.name}
                   </a>
                 </li>
@@ -80,24 +99,38 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4">Newsletter</h3>
-            <p className="text-gray-400 mb-4">
-              Subscribe to our newsletter for the latest updates, industry insights, and digital transformation tips.
-            </p>
-            <form className="flex" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Your email"
-                aria-label="Email for newsletter"
-                className="px-4 py-2 bg-gray-800 text-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-purple-500 flex-grow"
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 bg-purple-600 text-white rounded-r-md hover:bg-purple-700 transition-colors duration-300"
-              >
-                Subscribe
-              </button>
-            </form>
+            <h3 className="text-lg font-bold mb-4">Resources</h3>
+            <ul className="space-y-2">
+              {resourceLinks.map((link, index) => (
+                <li key={index}>
+                  <a 
+                    href={link.href}
+                    className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8">
+              <h3 className="text-lg font-bold mb-4">Contact Info</h3>
+              <address className="text-gray-400 not-italic">
+                <p>PIXELPIEMEDIA</p>
+                <p>C A AJAY GOYAL OFFICE</p>
+                <p>BARFKHANA CHAURAH</p>
+                <p>FIROZABAD 283203</p>
+                <p className="mt-2">
+                  <a href="tel:+917500740941" className="hover:text-purple-400 transition-colors duration-300">
+                    +91 7500740941
+                  </a>
+                </p>
+                <p>
+                  <a href="mailto:contact@pixelpiemedia.com" className="hover:text-purple-400 transition-colors duration-300">
+                    contact@pixelpiemedia.com
+                  </a>
+                </p>
+              </address>
+            </div>
           </div>
         </div>
         
@@ -108,13 +141,13 @@ const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} PIXELPIEMEDIA. All rights reserved.
           </p>
           <p className="mt-2 md:mt-0 text-purple-400">
-            Designed by Sachin
+            Designed with ❤️ by PIXELPIEMEDIA
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
-            <a href="#privacy" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+            <a href="/privacy-policy" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
               Privacy Policy
             </a>
-            <a href="#terms" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+            <a href="/terms-of-service" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
               Terms of Service
             </a>
           </div>
