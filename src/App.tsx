@@ -24,8 +24,11 @@ function App() {
   useEffect(() => {
     // Preload critical components
     const preloadComponents = async () => {
-      const components = [Hero, Services, Portfolio];
-      await Promise.all(components.map(component => component()));
+      await Promise.all([
+        import('./components/Hero'),
+        import('./components/Services'),
+        import('./components/Portfolio')
+      ]);
     };
     preloadComponents();
   }, []);
