@@ -1,26 +1,11 @@
 import React from 'react';
 import { 
-  Globe, 
-  Smartphone, 
-  TrendingUp, 
-  Palette, 
-  Code, 
-  Database, 
-  ShoppingBag,
-  MessageCircle,
-  ArrowRight,
-  CheckCircle,
-  Zap,
-  Search,
-  Share2,
-  Mail,
-  Target,
-  BarChart2,
-  Camera,
-  Video,
-  PenTool,
-  Layout,
-  Server
+  Globe, Smartphone, TrendingUp, Palette, Code, Database, 
+  ShoppingBag, MessageCircle, ArrowRight, CheckCircle, Zap,
+  Search, Share2, Mail, Target, BarChart2, Camera, Video,
+  PenTool, Layout, Server, CloudCog, Shield, Cpu, Bot,
+  Lightbulb, LineChart, Users, Megaphone, Newspaper,
+  BookOpen, Rocket, Award
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -37,12 +22,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, ben
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="bg-gradient-to-br from-slate-900 to-purple-900 rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 border border-purple-500/20 group"
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.3 }}
+      className="bg-gradient-to-br from-slate-900 to-purple-900 rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-200 border border-purple-500/20 group"
     >
-      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
-        <div className="text-purple-400 group-hover:text-cyan-400 transition-all duration-300">
+      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-200">
+        <div className="text-purple-400 group-hover:text-cyan-400 transition-all duration-200">
           {icon}
         </div>
       </div>
@@ -90,7 +75,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, ben
       <motion.a 
         href="#contact"
         whileHover={{ x: 5 }}
-        className="inline-flex items-center text-cyan-400 font-semibold mt-8 hover:text-purple-400 transition-colors duration-300"
+        transition={{ duration: 0.2 }}
+        className="inline-flex items-center text-cyan-400 font-semibold mt-8 hover:text-purple-400 transition-colors duration-200"
       >
         Learn More <ArrowRight className="ml-2 w-4 h-4" />
       </motion.a>
@@ -101,207 +87,207 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, ben
 const Services: React.FC = () => {
   const services = [
     {
-      icon: <Search size={32} />,
-      title: 'SEO & Content Marketing',
-      description: 'Boost your online visibility and drive organic traffic with our comprehensive SEO and content marketing strategies. We help you rank higher and attract qualified leads.',
+      icon: <Globe size={32} />,
+      title: 'Web Development',
+      description: 'Custom web solutions built with modern technologies and best practices for optimal performance and user experience.',
       benefits: [
-        'Increase organic traffic by 300%',
-        'Improve search engine rankings',
-        'Build domain authority',
-        'Generate quality backlinks'
+        'Responsive design for all devices',
+        'Fast loading speeds',
+        'SEO optimization',
+        'Secure implementation'
       ],
       features: [
-        'Keyword research & optimization',
-        'Content strategy & creation',
-        'Technical SEO audit',
-        'Link building campaigns'
+        'Custom development',
+        'CMS integration',
+        'E-commerce functionality',
+        'Performance optimization'
+      ]
+    },
+    {
+      icon: <Smartphone size={32} />,
+      title: 'Mobile App Development',
+      description: 'Native and cross-platform mobile applications that deliver exceptional user experiences.',
+      benefits: [
+        'Cross-platform compatibility',
+        'Offline functionality',
+        'Push notifications',
+        'Fast performance'
+      ],
+      features: [
+        'Native development',
+        'React Native apps',
+        'App Store optimization',
+        'Analytics integration'
+      ]
+    },
+    {
+      icon: <Search size={32} />,
+      title: 'SEO Services',
+      description: 'Comprehensive SEO strategies to improve your search rankings and drive organic traffic.',
+      benefits: [
+        'Higher search rankings',
+        'Increased organic traffic',
+        'Better ROI',
+        'Local SEO optimization'
+      ],
+      features: [
+        'Keyword research',
+        'On-page optimization',
+        'Technical SEO',
+        'Content strategy'
       ]
     },
     {
       icon: <Share2 size={32} />,
       title: 'Social Media Marketing',
-      description: 'Transform your social media presence with our strategic marketing solutions. We create engaging content and manage your social media channels to build strong connections with your audience.',
+      description: 'Strategic social media management to build brand awareness and engage your audience.',
       benefits: [
-        'Increase engagement by 200%',
-        'Grow follower base organically',
-        'Build brand awareness',
-        'Drive social conversions'
+        'Increased engagement',
+        'Brand awareness',
+        'Lead generation',
+        'Community building'
       ],
       features: [
-        'Content calendar & creation',
-        'Community management',
-        'Social media advertising',
-        'Analytics & reporting'
-      ]
-    },
-    {
-      icon: <Mail size={32} />,
-      title: 'Email Marketing',
-      description: 'Create powerful email campaigns that convert. Our email marketing services help you nurture leads and maintain strong relationships with your customers.',
-      benefits: [
-        'Increase open rates by 150%',
-        'Improve click-through rates',
-        'Boost customer retention',
-        'Drive repeat sales'
-      ],
-      features: [
-        'Campaign strategy & design',
-        'Automated workflows',
-        'A/B testing',
-        'Performance analytics'
-      ]
-    },
-    {
-      icon: <Target size={32} />,
-      title: 'PPC Advertising',
-      description: 'Maximize your ROI with targeted paid advertising campaigns. We manage your PPC campaigns across multiple platforms to drive qualified traffic and conversions.',
-      benefits: [
-        'Reduce cost per acquisition',
-        'Increase conversion rates',
-        'Improve ad relevance',
-        'Target specific audiences'
-      ],
-      features: [
-        'Google Ads management',
-        'Social media advertising',
-        'Display advertising',
-        'Remarketing campaigns'
-      ]
-    },
-    {
-      icon: <BarChart2 size={32} />,
-      title: 'Analytics & Reporting',
-      description: 'Make data-driven decisions with our comprehensive analytics and reporting services. We help you understand your digital performance and optimize for better results.',
-      benefits: [
-        'Track ROI accurately',
-        'Identify opportunities',
-        'Optimize campaigns',
-        'Measure success'
-      ],
-      features: [
-        'Custom dashboard setup',
-        'Performance tracking',
-        'Conversion optimization',
-        'Monthly reporting'
-      ]
-    },
-    {
-      icon: <Camera size={32} />,
-      title: 'Content Creation',
-      description: 'Create engaging visual content that captures attention and drives engagement. Our content creation services help you tell your brand story effectively.',
-      benefits: [
-        'Increase brand visibility',
-        'Improve engagement rates',
-        'Build brand identity',
-        'Drive social sharing'
-      ],
-      features: [
-        'Professional photography',
-        'Graphic design',
-        'Social media content',
-        'Brand storytelling'
-      ]
-    },
-    {
-      icon: <Video size={32} />,
-      title: 'Video Marketing',
-      description: 'Leverage the power of video to engage your audience and drive conversions. We create compelling video content that tells your brand story.',
-      benefits: [
-        'Increase engagement by 250%',
-        'Improve brand recall',
-        'Drive social sharing',
-        'Boost conversions'
-      ],
-      features: [
-        'Video production',
-        'Animation creation',
-        'Social media videos',
-        'Video advertising'
+        'Content creation',
+        'Campaign management',
+        'Analytics tracking',
+        'Audience targeting'
       ]
     },
     {
       icon: <PenTool size={32} />,
-      title: 'Brand Design',
-      description: 'Build a strong brand identity that resonates with your audience. Our branding services help you stand out in a crowded market.',
+      title: 'UI/UX Design',
+      description: 'User-centered design solutions that create engaging and intuitive digital experiences.',
       benefits: [
-        'Build brand recognition',
-        'Increase brand value',
-        'Improve brand perception',
-        'Create brand loyalty'
+        'Improved user experience',
+        'Higher conversion rates',
+        'Reduced bounce rates',
+        'Brand consistency'
       ],
       features: [
-        'Logo design',
-        'Brand guidelines',
-        'Visual identity',
-        'Brand strategy'
+        'User research',
+        'Wireframing',
+        'Prototyping',
+        'Visual design'
       ]
     },
     {
-      icon: <Layout size={32} />,
-      title: 'Website Design',
-      description: 'Create stunning, conversion-focused websites that drive results. Our web design services combine aesthetics with functionality.',
+      icon: <Bot size={32} />,
+      title: 'AI Solutions',
+      description: 'Innovative AI-powered solutions to automate processes and enhance decision-making.',
       benefits: [
-        'Improve user experience',
-        'Increase conversion rates',
-        'Reduce bounce rates',
-        'Build credibility'
+        'Process automation',
+        'Data-driven insights',
+        'Improved efficiency',
+        'Cost reduction'
       ],
       features: [
-        'Custom design',
-        'Responsive development',
-        'UX optimization',
-        'Performance tuning'
+        'Machine learning',
+        'Natural language processing',
+        'Predictive analytics',
+        'Custom AI models'
       ]
     },
     {
-      icon: <Server size={32} />,
-      title: 'Web Development',
-      description: 'Build powerful, scalable web applications that drive your business forward. Our development team creates robust solutions tailored to your needs.',
+      icon: <CloudCog size={32} />,
+      title: 'Cloud Services',
+      description: 'Scalable cloud solutions for improved performance, security, and reliability.',
       benefits: [
-        'Improve functionality',
-        'Enhance performance',
-        'Scale efficiently',
-        'Ensure security'
+        'Scalable infrastructure',
+        'Cost optimization',
+        'High availability',
+        'Disaster recovery'
       ],
       features: [
-        'Custom development',
-        'API integration',
-        'Database design',
+        'Cloud migration',
+        'Infrastructure setup',
+        'Monitoring',
         'Security implementation'
       ]
     },
     {
-      icon: <ShoppingBag size={32} />,
-      title: 'E-commerce Solutions',
-      description: 'Create powerful online stores that drive sales. We build e-commerce solutions that provide exceptional shopping experiences.',
+      icon: <Megaphone size={32} />,
+      title: 'Digital Marketing',
+      description: 'Comprehensive digital marketing strategies to grow your online presence.',
       benefits: [
-        'Increase online sales',
-        'Improve conversion rates',
-        'Enhance user experience',
-        'Streamline operations'
+        'Increased visibility',
+        'Lead generation',
+        'Brand awareness',
+        'Higher conversions'
       ],
       features: [
-        'Custom store development',
-        'Payment integration',
-        'Inventory management',
-        'Analytics setup'
+        'PPC campaigns',
+        'Email marketing',
+        'Content strategy',
+        'Analytics tracking'
       ]
     },
     {
-      icon: <MessageCircle size={32} />,
-      title: 'Social Media Management',
-      description: 'Manage your social media presence effectively. We help you build and maintain strong connections with your audience.',
+      icon: <Newspaper size={32} />,
+      title: 'Content Marketing',
+      description: 'Strategic content creation and distribution to attract and retain customers.',
       benefits: [
-        'Increase engagement',
-        'Grow audience',
-        'Build community',
-        'Drive traffic'
+        'Thought leadership',
+        'Organic traffic growth',
+        'Lead nurturing',
+        'Brand authority'
       ],
       features: [
-        'Content management',
-        'Community engagement',
-        'Campaign execution',
-        'Performance tracking'
+        'Content strategy',
+        'Blog management',
+        'SEO optimization',
+        'Social distribution'
+      ]
+    },
+    {
+      icon: <BookOpen size={32} />,
+      title: 'Training & Support',
+      description: 'Comprehensive training and support services for digital transformation.',
+      benefits: [
+        'Skill development',
+        'Team enablement',
+        'Knowledge transfer',
+        'Ongoing support'
+      ],
+      features: [
+        'Custom training',
+        'Documentation',
+        'Technical support',
+        'Maintenance'
+      ]
+    },
+    {
+      icon: <Rocket size={32} />,
+      title: 'Digital Strategy',
+      description: 'Strategic digital transformation consulting for business growth.',
+      benefits: [
+        'Clear roadmap',
+        'Competitive advantage',
+        'Innovation focus',
+        'Risk management'
+      ],
+      features: [
+        'Market analysis',
+        'Technology assessment',
+        'Implementation planning',
+        'ROI tracking'
+      ]
+    },
+    {
+      icon: <Award size={32} />,
+      title: 'Brand Development',
+      description: 'Comprehensive brand development and management services.',
+      benefits: [
+        'Brand recognition',
+        'Market positioning',
+        'Customer loyalty',
+        'Brand consistency'
+      ],
+      features: [
+        'Brand strategy',
+        'Visual identity',
+        'Guidelines development',
+        'Brand monitoring'
       ]
     }
   ];
@@ -313,6 +299,7 @@ const Services: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
@@ -341,15 +328,17 @@ const Services: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.3 }}
           className="mt-16 text-center"
         >
           <motion.a 
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
             className="px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center group"
           >
-            Start Your Digital Journey <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+            Start Your Digital Journey <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-200" />
           </motion.a>
         </motion.div>
       </div>
