@@ -1,8 +1,19 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import compression from 'vite-plugin-compression';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    compression({
+      algorithm: 'gzip',
+      ext: '.gz',
+    }),
+    compression({
+      algorithm: 'brotliCompress',
+      ext: '.br',
+    }),
+  ],
   build: {
     sourcemap: true,
     rollupOptions: {
@@ -19,6 +30,12 @@ export default defineConfig({
     minify: 'esbuild',
     cssMinify: true,
     assetsInlineLimit: 4096,
-    chunkSizeWarningLimit: 1000
-  }
+    chunkSizeWarningLimit: 1000,
+    reportCompressedSize: false
+  },
+  server: {
+    headers: {
+      'Cache-Control': 'public, max-age=31536000',
+    },
+  },
 });
