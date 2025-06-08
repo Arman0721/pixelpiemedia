@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,21 +32,20 @@ const Navbar: React.FC = () => {
   };
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
+    { name: 'Home', href: '/' },
     {
       name: 'Services',
-      href: '#services',
+      href: '/services',
       dropdown: [
-        { name: 'Digital Marketing', href: '#digital-marketing' },
-        { name: 'Web Development', href: '#web-development' },
-        { name: 'Mobile Apps', href: '#mobile-apps' },
-        { name: 'Branding', href: '#branding' },
+        { name: 'Web Development', href: '/services#web-development' },
+        { name: 'Mobile Apps', href: '/services#mobile-apps' },
+        { name: 'Digital Marketing', href: '/services#digital-marketing' },
+        { name: 'UI/UX Design', href: '/services#ui-ux-design' },
       ],
     },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Portfolio', href: '/portfolio' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -56,20 +57,22 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
-            <Logo />
+            <Link to="/" onClick={closeMenu}>
+              <Logo />
+            </Link>
           </div>
           
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
               {navLinks.map((link) => (
                 <div key={link.name} className="relative group">
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className={`relative group px-3 py-2 rounded-md text-sm font-medium ${
                       isScrolled
                         ? 'text-gray-800 hover:text-purple-600'
                         : 'text-white hover:text-purple-300'
-                    } flex items-center`}
+                    } ${location.pathname === link.href ? 'text-purple-600' : ''} flex items-center`}
                     onClick={() => !link.dropdown && closeMenu()}
                   >
                     {link.name}
@@ -78,19 +81,19 @@ const Navbar: React.FC = () => {
                         <ChevronDown size={16} />
                       </span>
                     )}
-                  </a>
+                  </Link>
                   
                   {link.dropdown && (
                     <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block transition-all duration-200 z-50">
                       {link.dropdown.map((item) => (
-                        <a
+                        <Link
                           key={item.name}
-                          href={item.href}
+                          to={item.href}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                           onClick={closeMenu}
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -120,13 +123,15 @@ const Navbar: React.FC = () => {
           {navLinks.map((link) => (
             <div key={link.name}>
               <div className="flex justify-between items-center">
-                <a
-                  href={!link.dropdown ? link.href : undefined}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-purple-600"
+                <Link
+                  to={!link.dropdown ? link.href : '#'}
+                  className={`block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-purple-600 ${
+                    location.pathname === link.href ? 'text-purple-600' : ''
+                  }`}
                   onClick={() => !link.dropdown && closeMenu()}
                 >
                   {link.name}
-                </a>
+                </Link>
                 {link.dropdown && (
                   <button
                     onClick={() => toggleDropdown(link.name)}
@@ -144,14 +149,14 @@ const Navbar: React.FC = () => {
               {link.dropdown && activeDropdown === link.name && (
                 <div className="pl-4 pb-2">
                   {link.dropdown.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       onClick={closeMenu}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}

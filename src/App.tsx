@@ -1,17 +1,20 @@
 import React, { useEffect, Suspense, lazy, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { WhatsAppWidget } from 'react-whatsapp-widget';
 import 'react-whatsapp-widget/dist/index.css';
 import Navbar from './components/Navbar';
 import LoadingBar from './components/LoadingBar';
 
-// Lazy load components with loading priority
-const Hero = lazy(() => import('./components/Hero'));
-const Services = lazy(() => import('./components/Services'));
-const Portfolio = lazy(() => import('./components/Portfolio'));
-const Pricing = lazy(() => import('./components/Pricing'));
-const About = lazy(() => import('./components/About'));
-const Testimonials = lazy(() => import('./components/Testimonials'));
-const Contact = lazy(() => import('./components/Contact'));
+// Lazy load components
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Services = lazy(() => import('./pages/Services'));
+const Portfolio = lazy(() => import('./pages/Portfolio'));
+const Contact = lazy(() => import('./pages/Contact'));
+const CaseStudies = lazy(() => import('./pages/CaseStudies'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./pages/TermsOfService'));
+const FAQ = lazy(() => import('./pages/FAQ'));
 const Footer = lazy(() => import('./components/Footer'));
 
 function App() {
@@ -35,9 +38,9 @@ function App() {
     const preloadComponents = async () => {
       try {
         await Promise.all([
-          import('./components/Hero'),
-          import('./components/Services'),
-          import('./components/Portfolio')
+          import('./pages/Home'),
+          import('./pages/Services'),
+          import('./pages/Contact')
         ]);
       } catch (error) {
         console.error('Error preloading components:', error);
@@ -54,28 +57,34 @@ function App() {
   }
 
   return (
-    <div className="font-sans">
-      <Navbar />
-      <main>
-        <Suspense fallback={<LoadingBar progress={100} />}>
-          <Hero />
-          <Services />
-          <Portfolio />
-          <Pricing />
-          <About />
-          <Testimonials />
-          <Contact />
-        </Suspense>
-      </main>
-      <Footer />
-      <WhatsAppWidget
-        phoneNumber="917500740941"
-        message="Hello! How can we help you today?"
-        companyName="PIXELPIEMEDIA"
-        replyTimeText="Typically replies within an hour"
-        className="z-50"
-      />
-    </div>
+    <Router>
+      <div className="font-sans">
+        <Navbar />
+        <main>
+          <Suspense fallback={<LoadingBar progress={100} />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/faq" element={<FAQ />} />
+            </Routes>
+          </Suspense>
+        </main>
+        <Footer />
+        <WhatsAppWidget
+          phoneNumber="917500740941"
+          message="Hello! How can we help you today?"
+          companyName="PIXELPIEMEDIA"
+          replyTimeText="Typically replies within an hour"
+          className="z-50"
+        />
+      </div>
+    </Router>
   );
 }
 

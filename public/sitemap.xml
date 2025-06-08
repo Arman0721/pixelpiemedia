@@ -2,27 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pixelpiemedia.com/</loc>
-    <lastmod>2024-05-25</lastmod>
+    <lastmod>2024-01-15</lastmod>
     <priority>1.00</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pixelpiemedia.com/about</loc>
-    <lastmod>2024-05-25</lastmod>
+    <lastmod>2024-01-15</lastmod>
     <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pixelpiemedia.com/contact</loc>
-    <lastmod>2024-05-25</lastmod>
-    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://pixelpiemedia.com/services</loc>
-    <lastmod>2024-05-25</lastmod>
-    <priority>0.80</priority>
+    <lastmod>2024-01-15</lastmod>
+    <priority>0.90</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pixelpiemedia.com/portfolio</loc>
-    <lastmod>2024-05-25</lastmod>
+    <lastmod>2024-01-15</lastmod>
     <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pixelpiemedia.com/contact</loc>
+    <lastmod>2024-01-15</lastmod>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://pixelpiemedia.com/case-studies</loc>
+    <lastmod>2024-01-15</lastmod>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://pixelpiemedia.com/privacy-policy</loc>
+    <lastmod>2024-01-15</lastmod>
+    <priority>0.30</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://pixelpiemedia.com/terms-of-service</loc>
+    <lastmod>2024-01-15</lastmod>
+    <priority>0.30</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://pixelpiemedia.com/faq</loc>
+    <lastmod>2024-01-15</lastmod>
+    <priority>0.60</priority>
+    <changefreq>monthly</changefreq>
   </url>
 </urlset>
