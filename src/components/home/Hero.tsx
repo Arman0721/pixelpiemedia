@@ -72,12 +72,49 @@ const Hero: React.FC = () => {
     setIsLoaded(true);
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.2,
+        ease: [0.4, 0, 0.2, 1]
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.4, 0, 0.2, 1]
+      }
+    }
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8, rotateY: -15 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotateY: 0,
+      transition: {
+        duration: 1.2,
+        ease: [0.4, 0, 0.2, 1]
+      }
+    }
+  };
+
   return (
     <section id="home" className="relative pt-20 overflow-hidden min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-center opacity-10"></div>
       
       {isLoaded && (
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 opacity-30">
           <Canvas
             camera={{ position: [0, 0, 5] }}
             dpr={[1, 2]}
@@ -89,7 +126,7 @@ const Hero: React.FC = () => {
               <OrbitControls 
                 enableZoom={false} 
                 autoRotate 
-                autoRotateSpeed={0.5}
+                autoRotateSpeed={0.3}
                 maxPolarAngle={Math.PI / 2}
                 minPolarAngle={Math.PI / 2}
               />
@@ -102,83 +139,83 @@ const Hero: React.FC = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <div className="lg:grid lg:grid-cols-2 gap-12 items-center">
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
             className="text-center lg:text-left mb-12 lg:mb-0"
           >
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 text-white mb-6"
+              variants={itemVariants}
+              className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 text-white mb-6 backdrop-blur-sm border border-purple-500/20"
             >
-              <Sparkles className="w-5 h-5 mr-2 text-purple-400" />
+              <Sparkles className="w-5 h-5 mr-2 text-purple-400 animate-pulse-subtle" />
               <span>Transforming Digital Experiences</span>
             </motion.div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              <motion.span 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="block bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
-              >
+            
+            <motion.h1 
+              variants={itemVariants}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
+            >
+              <span className="block bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent gradient-shift">
                 Digital Excellence
-              </motion.span>
-              <motion.span 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="block mt-1"
-              >
+              </span>
+              <span className="block mt-1">
                 Delivered
-              </motion.span>
-            </h1>
+              </span>
+            </motion.h1>
+            
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-lg md:text-xl text-cyan-100 mb-8 max-w-lg mx-auto lg:mx-0"
+              variants={itemVariants}
+              className="text-lg md:text-xl text-cyan-100 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed"
             >
               Transform your business with cutting-edge digital solutions. From stunning websites to powerful mobile apps, we bring your vision to life.
             </motion.p>
+            
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <motion.a 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 href="/services" 
-                className="px-8 py-3 bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 inline-flex items-center justify-center"
-              >
-                Explore Services <ArrowRight size={18} className="ml-2" />
-              </motion.a>
-              <motion.a 
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 25px -5px rgba(147, 51, 234, 0.3)"
+                }}
                 whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                className="px-8 py-3 bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-semibold rounded-full shadow-lg transition-all duration-300 inline-flex items-center justify-center group"
+              >
+                Explore Services 
+                <ArrowRight size={18} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+              </motion.a>
+              
+              <motion.a 
                 href="/contact" 
-                className="px-8 py-3 bg-transparent text-white font-semibold rounded-full border-2 border-purple-400 hover:bg-purple-400/10 transition-all duration-300 inline-flex items-center justify-center group"
+                whileHover={{ 
+                  scale: 1.05,
+                  backgroundColor: "rgba(147, 51, 234, 0.1)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                className="px-8 py-3 bg-transparent text-white font-semibold rounded-full border-2 border-purple-400 transition-all duration-300 inline-flex items-center justify-center group"
               >
                 Start Your Project
-                <ArrowRight size={18} className="ml-2 transform group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={18} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               </motion.a>
             </motion.div>
           </motion.div>
           
           <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+            variants={imageVariants}
+            initial="hidden"
+            animate="visible"
             className="relative perspective-1000"
           >
-            <div className="animate-morph bg-gradient-to-r from-purple-500 via-cyan-500 to-purple-500 p-1 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] shadow-2xl">
+            <div className="animate-morph bg-gradient-to-r from-purple-500 via-cyan-500 to-purple-500 p-1 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] shadow-2xl hover-lift">
               <img
                 src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 alt="Digital Innovation Team"
-                className="rounded-[60%_40%_30%_70%/60%_30%_70%_40%] animate-morph"
+                className="rounded-[60%_40%_30%_70%/60%_30%_70%_40%] animate-morph w-full h-auto"
                 loading="eager"
               />
             </div>
@@ -188,7 +225,7 @@ const Hero: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          transition={{ duration: 1, delay: 1.2, ease: [0.4, 0, 0.2, 1] }}
           className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8"
         >
           {[
@@ -199,15 +236,27 @@ const Hero: React.FC = () => {
           ].map((stat, index) => (
             <motion.div 
               key={index}
-              whileHover={{ scale: 1.1 }}
-              className="text-center transform-gpu bg-white/5 backdrop-blur-lg rounded-lg p-6"
+              whileHover={{ 
+                scale: 1.05,
+                y: -5
+              }}
+              transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              className="text-center transform-gpu bg-white/5 backdrop-blur-lg rounded-lg p-6 border border-white/10 hover-lift"
             >
               <motion.p 
                 className="text-3xl md:text-4xl font-bold"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5 + index * 0.1 }}
               >
                 <AnimatedCounter value={stat.value} />
               </motion.p>
-              <motion.p className="text-cyan-200 mt-2">
+              <motion.p 
+                className="text-cyan-200 mt-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.7 + index * 0.1 }}
+              >
                 {stat.label}
               </motion.p>
             </motion.div>
