@@ -1,33 +1,32 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
 const Footer: React.FC = () => {
   const serviceLinks = [
-    { name: 'Web Development', href: '#services-web' },
-    { name: 'Mobile App Development', href: '#services-mobile' },
-    { name: 'Digital Marketing', href: '#services-marketing' },
-    { name: 'UI/UX Design', href: '#services-design' },
-    { name: 'SEO Services', href: '#services-seo' },
-    { name: 'Content Marketing', href: '#services-content' },
-    { name: 'Social Media Management', href: '#services-social' },
-    { name: 'E-Commerce Solutions', href: '#services-ecommerce' },
+    { name: 'Web Development', href: '/services' },
+    { name: 'Mobile App Development', href: '/services' },
+    { name: 'Digital Marketing', href: '/services' },
+    { name: 'UI/UX Design', href: '/services' },
+    { name: 'SEO Services', href: '/services' },
+    { name: 'Content Marketing', href: '/services' },
+    { name: 'Social Media Management', href: '/services' },
+    { name: 'E-Commerce Solutions', href: '/services' },
   ];
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Portfolio', href: '/portfolio' },
+    { name: 'Case Studies', href: '/case-studies' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const resourceLinks = [
-    { name: 'Blog', href: '/blog' },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Terms of Service', href: '/terms-of-service' },
-    { name: 'Sitemap', href: '/sitemap.xml' },
     { name: 'FAQ', href: '/faq' },
   ];
 
@@ -71,12 +70,12 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               {serviceLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href}
+                  <Link 
+                    to={link.href}
                     className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -87,12 +86,12 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href}
+                  <Link 
+                    to={link.href}
                     className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -103,12 +102,12 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               {resourceLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href}
+                  <Link 
+                    to={link.href}
                     className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -144,12 +143,12 @@ const Footer: React.FC = () => {
             Designed with ❤️ by PIXELPIEMEDIA
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
-            <a href="/privacy-policy" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+            <Link to="/privacy-policy" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
               Privacy Policy
-            </a>
-            <a href="/terms-of-service" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+            </Link>
+            <Link to="/terms-of-service" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
